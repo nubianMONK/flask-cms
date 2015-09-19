@@ -1,0 +1,9 @@
+Flask_CMS ToDo List
+
+Create GitHub Repository
+Prepare Development Environment
+Project Structure (Directory Hierarchy)
+	Packages
+	Blueprints
+	
+
