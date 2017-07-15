@@ -1,0 +1,72 @@
+
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Content Page{% endblock %}
+
+{% block page_content %}
+
+<div class="page-header">
+    <h1>Content Page</h1>
+</div>
+<br>
+
+
+
+
+
+
+
+{% if single_content %}
+
+
+    <h2>{{ single_content.title }} <small>Posted by: {{ single_content.author }} </small></h2>
+
+    <hr/>
+    <div class="row">
+        <div class="col-md-8">
+            {% if tags %}
+                {% for tag in tags %}
+                    {{ tag.tag_name }} &gt;&nbsp;
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="col-md-4">
+            {%  if session['logged_in'] and session['admin'] %}
+                <a href="{{ url_for('admin_content_page_edit', id = single_content.content_id) }}" >Edit</a>
+            {% endif %}
+        </div>
+    </div>
+    <hr/>
+
+
+    <div class="row">
+        <div class="col-md-8"> {{ single_content.payload }} </div>
+
+    </div>
+
+
+
+{% endif %}
+
+<div class="form-group">
+    <div class="col-md-12">
+
+
+	</div>
+
+</div>
+
+<br>
+
+
+
+
+
+
+
+
+
+
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+{% endblock %}

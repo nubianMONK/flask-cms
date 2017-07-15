@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block title %}Update Page{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Update Page</h1>
+</div>
+<div>
+    <form action="{{ url_for('admin_content_page_edit', id = content_page.content_id) }}" method="post">
+     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+
+     <tr>
+         <td> {{ form.title(placeholder = content_page.title) }} </td>
+         <td> {{ form.payload(placeholder = content_page.payload) }} </td>
+         <td> {{ form.author(placeholder = content_page.author) }} </td>
+         <td>
+
+                 {% for tag in tags %}
+                    {{ form.tag(placeholder = tag.tag_name) }}
+                 {% endfor %}
+
+         </td>
+         <td> {{ form.form_submit }} </td>
+         <td>
+
+
+         </td>
+     </tr>
+
+    </form>
+</div>
+{% endblock %}

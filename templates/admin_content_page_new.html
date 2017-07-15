@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block title %}Add New Page{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Add New Page</h1>
+</div>
+<div>
+    <form action="{{ url_for('admin_content_page_new') }}" method="post">
+     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+     {{ wtf.quick_form(form) }}
+    </form>
+</div>
+{% endblock %}
