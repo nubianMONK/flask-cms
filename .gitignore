@@ -3,6 +3,7 @@
  
 ## generic files to ignore
 flask_session
+migrations
 *~
 *.lock
 *.DS_Store
