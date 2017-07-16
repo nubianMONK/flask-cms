@@ -20,12 +20,15 @@
             </button>
 
 			<a class="navbar-brand" href="{{ url_for('content') }}">Flask CMS</a>
-      <a class="nav navbar-nav" href="{{ url_for('content') }}">Content</a>
+      <ul class="nav navbar-nav">
+        <li><a href="{{ url_for('content') }}">Content</a></li>
+
             {% if not session['logged_in'] %}
 
-              <a class="nav navbar-nav" href="{{ url_for('login') }}">Login</a>
+              <li><a href="{{ url_for('login') }}">Login</a></li>
 
             {% endif %}
+
             {% if session['logged_in'] %}
 
                 <form action="{{ url_for('logout') }}" class="navbar-form form-inline" method="POST">
@@ -37,12 +40,13 @@
                 </form>
 
             {% endif %}
-            <a class="nav navbar-nav" href="{{ url_for('signup') }}">SignUp</a>
+            <li><a href="{{ url_for('signup') }}">SignUp</a></li>
             {%  if session['logged_in'] and session['admin']  %}
-                <a class="nav navbar-nav" href="{{ url_for('admin_index') }}">AdminIndex</a>
+                <li><a href="{{ url_for('admin_index') }}">AdminIndex</a></li>
             {% endif %}
-            <a class="nav navbar-nav" href="{{ url_for('setting') }}">Setting</a>
-            <a class="nav navbar-nav" href="#">Tag Cloud</a>
+            <li><a href="{{ url_for('setting') }}">Setting</a></li>
+            <li><a href="#">Tag Cloud</a></li>
+        </ul>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
