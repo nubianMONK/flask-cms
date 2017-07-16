@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, flash, url_for, Markup, session
-from flask.ext.session import Session
-from flask.ext.bootstrap import Bootstrap
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_session import Session
+from flask_bootstrap import Bootstrap
+from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CsrfProtect
 from forms import LoginForm, SignUp, Setting, AdminContentPageNew,  AdminContentPageEdit
 import markdown

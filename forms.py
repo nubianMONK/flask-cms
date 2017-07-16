@@ -1,6 +1,6 @@
 from urllib.parse import urlparse, urljoin
 from flask import request, url_for, redirect
-from flask.ext.wtf import Form
+from flask_wtf import Form
 from wtforms.fields import StringField, SubmitField, HiddenField,PasswordField, TextAreaField
 from wtforms.validators import EqualTo, InputRequired, Length, ValidationError, URL, Required, Email
 from wtforms.fields.html5 import EmailField
@@ -68,7 +68,7 @@ class Setting(Form):
     form_submit = SubmitField('Save')
 
 class AdminContentPageNew(Form):
-    
+
     title = StringField('Title', [InputRequired('You did not provide a title.'), Length(max=80, message='Sorry, the max length of a title is 80.')])
     payload = TextAreaField('Content', [InputRequired('You did not provide content.')])
     author = StringField('Author', [InputRequired('You did not provide a name.'), Length(max=80, message='Sorry, the max length of an author is 80.')])

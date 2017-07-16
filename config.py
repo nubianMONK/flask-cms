@@ -9,4 +9,5 @@ PASSWORD = 'admin'
 SECRET_KEY = 'hard to guess string'
 #WTF_CSRF_ENABLED = 'True'
 # DATABASE_PATH = os.path.join(basedir, DATABASE)
+SQLALCHEMY_TRACK_MODIFICATIONS = 'True'
 SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:postadmin@localhost/' + DATABASE
