@@ -19,10 +19,11 @@
                 <span class="icon-bar"></span>
             </button>
 
-			<a class="navbar-brand" href="{{ url_for('content') }}">Content</a>
+			<a class="navbar-brand" href="{{ url_for('content') }}">Flask CMS</a>
+      <a class="nav navbar-nav" href="{{ url_for('content') }}">Content</a>
             {% if not session['logged_in'] %}
 
-                <a class="navbar-brand" href="{{ url_for('login') }}">Login</a>
+              <a class="nav navbar-nav" href="{{ url_for('login') }}">Login</a>
 
             {% endif %}
             {% if session['logged_in'] %}
@@ -36,12 +37,12 @@
                 </form>
 
             {% endif %}
-            <a class="navbar-brand" href="{{ url_for('signup') }}">SignUp</a>
+            <a class="nav navbar-nav" href="{{ url_for('signup') }}">SignUp</a>
             {%  if session['logged_in'] and session['admin']  %}
-                <a class="navbar-brand" href="{{ url_for('admin_index') }}">AdminIndex</a>
+                <a class="nav navbar-nav" href="{{ url_for('admin_index') }}">AdminIndex</a>
             {% endif %}
-            <a class="navbar-brand" href="{{ url_for('setting') }}">Setting</a>
-            <a class="navbar-brand" href="#">Tag Cloud</a>
+            <a class="nav navbar-nav" href="{{ url_for('setting') }}">Setting</a>
+            <a class="nav navbar-nav" href="#">Tag Cloud</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
