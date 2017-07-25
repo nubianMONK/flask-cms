@@ -18,45 +18,29 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-
-			<a class="navbar-brand" href="{{ url_for('content') }}">Flask CMS</a>
-      <ul class="nav navbar-nav">
-        <li><a href="{{ url_for('content') }}">Content</a></li>
-
+            <a class="navbar-brand" href="{{ url_for('content') }}">Flask CMS</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{{ url_for('content') }}">Content</a></li>
             {% if not session['logged_in'] %}
-
-              <li><a href="{{ url_for('login') }}">Login</a></li>
-
+            <li><a href="{{ url_for('login') }}">Login</a></li>
             {% endif %}
-
             {% if session['logged_in'] %}
-
-                <form action="{{ url_for('logout') }}" class="navbar-form form-inline" method="POST">
-
-                    <input type="hidden"  name="csrf_token" value="{{ csrf_token() }}" />
-
-                    <input type="submit" class="btn btn-link" value="Logout">
-
-                </form>
-
+            <form action="{{ url_for('logout') }}" class="navbar-form form-inline" method="POST">
+              <input type="hidden"  name="csrf_token" value="{{ csrf_token() }}" />
+              <input type="submit" class="btn btn-link" value="Logout">
+            </form>
             {% endif %}
             <li><a href="{{ url_for('signup') }}">SignUp</a></li>
             {%  if session['logged_in'] and session['admin']  %}
-                <li><a href="{{ url_for('admin_index') }}">AdminIndex</a></li>
+            <li><a href="{{ url_for('admin_index') }}">AdminIndex</a></li>
             {% endif %}
             <li><a href="{{ url_for('setting') }}">Setting</a></li>
             <li><a href="#">Tag Cloud</a></li>
-        </ul>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-
-            </ul>
-        </div>
-
+          </ul>
+          </div>
     </div>
-
-
 </div>
 {% endblock %}
 
