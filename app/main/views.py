@@ -1,6 +1,6 @@
-from flask import render_template, request, redirect, flash, url_for, Markup, session
+from flask import render_template, request, redirect, flash, url_for, Markup, session, current_app
 from .. import db
-# from flask import Flask
+# from flask import Flaskapp
 from ..models import Content
 from ..models import Tag
 from ..models import User
@@ -43,7 +43,7 @@ def get_user(username):
 
 
 def is_admin(username):
-    if username == app.config['USERNAME']:
+    if username == current_app.config['USERNAME']:
         return True
     else:
         return False

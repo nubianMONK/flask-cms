@@ -2,16 +2,16 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
-{% block title %}Contents Page{% endblock %}
+{% block title %}Admin Index Page{% endblock %}
 
 {% block page_content %}
 <div class="page-header">
-    <h1>Contents Page</h1>
+    <h1>Content Page</h1>
 </div>
 <br>
 
 <div>
-<form action="" method="" >
+<form action="{{ url_for('main.admin_content_page_new') }}" method="GET" >
 
 <table>
 
@@ -22,14 +22,14 @@
         <ul>
             {% for content in contents %}
 
-                <li> {{ content.content_id }} <a href="{{ url_for('content', id = content.content_id) }}">{{ content.title }}  </a> </li>
+                <li> {{ content.content_id }} <a href="{{ url_for('main.content', id = content.content_id) }}">{{ content.title }}  </a> </li>
 
             {% endfor %}
         {% endif %}
 
 
 	</tr>
-
+    <tr> <input type="submit"  value="Create New Page"> </tr>
 
 	<br>
     <tr><th>Comments</th></tr>
