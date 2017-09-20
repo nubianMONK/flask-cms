@@ -27,7 +27,9 @@
         <div class="col-md-8">
             {% if tags %}
                 {% for tag in tags %}
-                    {{ tag.tag_name }} &gt;&nbsp;
+                  <button class="btn">
+                    {{ tag.tag_name }}<span class="badge badge-secondary">4</span> &gt;&nbsp;
+                  </button>
                 {% endfor %}
             {% endif %}
         </div>
